@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    position: sticky;
+    padding: 0.5em;
+    background: #ddd;
+    color: #222;
+    text-align: center;
+}
