@@ -7,9 +7,22 @@
 } */
 
 #leadin {
+    background-color: white;
+    -webkit-transition: background 2s;
+    transition: background 2s;
+
     display: block;
     position: sticky;
-    top: 0;
+    top: -1px;
+
+    padding-top: calc(1em + 1px);
+}
+
+p.isSticky {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    color: greenyellow;
+
 }
 
 #adbox {

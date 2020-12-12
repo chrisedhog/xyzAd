@@ -8,8 +8,77 @@ var str = String.fromCharCode(66);
 var par = document.getElementById("leadin");
 var message = par.innerHTML;
 var reformatPara;
+var trigger = false;
 
-function funcy() {
+
+///////////////////////////////////////////////////
+// below code taken from stackoverflow user jonathansampson
+// this code is used to detect when the CSS sticky property is triggered on leadin and to execuse matrix function
+///////////////////////////////////////////////////
+
+// get the first parent element which is scrollable
+const stickyElmScrollableParent = getScrollParent(par);
+
+// save the original offsetTop. when this changes, it means stickiness has begun.
+par._originalOffsetTop = par.offsetTop;
+
+// compare previous scrollTop to current one
+const detectStickiness = (elm, cb) => () => cb & cb(elm.offsetTop != elm._originalOffsetTop)
+
+// Act if sticky or not
+const onSticky = isSticky => {
+   console.clear()
+   console.log(isSticky)
+   
+   par.classList.toggle('isSticky', isSticky)
+   if(isSticky) {
+   trigger = true
+   console.log(trigger)
+   par.style.backgroundColor = 'black'
+   }
+}
+
+const scrollCallback = detectStickiness(par, onSticky)
+stickyElmScrollableParent.addEventListener('scroll', scrollCallback)
+
+// find-first-scrollable-parent
+function getScrollParent(element, includeHidden) {
+    var style = getComputedStyle(element),
+        excludeStaticParent = style.position === "absolute",
+        overflowRegex = includeHidden ? /(auto|scroll|hidden)/ : /(auto|scroll)/;
+
+    if (style.position !== "fixed") 
+      for (var parent = element; (parent = parent.parentElement); ){
+          style = getComputedStyle(parent);
+          if (excludeStaticParent && style.position === "static") 
+              continue;
+          if (overflowRegex.test(style.overflow + style.overflowY + style.overflowX)) 
+            return parent;
+      }
+
+    return window
+}
+
+// Throttle
+function throttle (callback, limit) {
+    var wait = false;                  
+    return function () {              
+        if (!wait) {                   
+            callback.call();         
+            wait = true;              
+            setTimeout(function () {  
+                wait = false;        
+            }, limit);
+        }
+    }
+}
+
+///////////////////////////////////////////////////
+// end stackoverflow code from user jonathansampson
+///////////////////////////////////////////////////
+
+if(trigger == true) {
+    console.log("hello");
     reformatPara = setInterval(trinityMessage, 30);
 }
 
@@ -45,7 +114,7 @@ function trinityMessage() {
     clearInterval(reformatPara);
     // set a timeout to then alter the CSS
     }
-    
+
 }
 
 // for slicing and concatenating the message string
@@ -72,3 +141,23 @@ function writeText(i) {
         message = setCharAt(message, i, message.charCodeAt(i)+1);
     }
 }
+
+
+// get position and trigger animation
+window.addEventListener('scroll', () => {
+    var d = document.getElementsByTagName("leadin");
+    var n = document.getElementById("adbox");
+    var dpos = d.offsetTop;
+    var npos = n.offsetTop;
+
+    console.log("leadin: " + dpos + ". adbox: " + npos);
+
+    // var para = document.getElementsByTagName("P")[3];
+    // var adBanner = document.getElementById("adbanner");
+    // console.log(para.offsetTop);
+
+    // const scrollMax = document.documentElement.scrollHeight - window.innerHeight;
+    // const scrollDist = Math.ceil(window.scrollY); 
+    // console.log("scrolled");
+    // console.log(scrollMax + " " + scrollDist);
+});

@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="style/main.css">
     <!-- CSS pertaining to the ad -->
     <link rel="stylesheet" href="style/ad.css">
+    <!-- scroll anim library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <nav>the nav bar</nav>
@@ -21,7 +23,7 @@
         <p id="leadin">Umami tote bag VHS, laboris try-hard pop-up narwhal pitchfork prism gastropub. Vinyl pop-up meggings blog yuccie hella blue bottle occaecat irony veniam. Typewriter fixie banjo beard do 3 wolf moon wolf tumeric synth pickled. Esse cold-pressed synth literally chicharrones, distillery consectetur four dollar toast nisi. Jianbing narwhal ullamco, heirloom fam kombucha pickled cold-pressed intelligentsia consectetur taxidermy small batch woke DIY. Tempor eiusmod butcher waistcoat shabby chic single-origin coffee nisi.</p>
         <!-- pretend ad starts here -->
         <div id="adbox">
-            Lorem ipsum
+            <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">The Matrix has you.</div>
         </div>
         <br>
         <p>Tumblr dolore sunt YOLO, fashion axe hella helvetica poke four loko. Flannel drinking vinegar four loko dolore gluten-free. Skateboard pitchfork meggings drinking vinegar ut succulents. Whatever wolf 8-bit taxidermy laboris pop-up cronut dolore roof party jean shorts pariatur vape actually.</p>
@@ -29,9 +31,13 @@
         <p>Synth yr af fam authentic jianbing anim cupidatat duis. Meditation authentic chambray humblebrag fanny pack VHS ethical. Cornhole fugiat pug whatever bicycle rights yuccie schlitz gentrify tousled four dollar toast viral neutra. Four loko affogato sartorial est. Pickled yr slow-carb paleo, flannel typewriter ugh snackwave. Williamsburg cred snackwave, disrupt irony narwhal venmo art party trust fund.</p>
         <p>Tilde pabst mlkshk humblebrag, labore bespoke roof party slow-carb meh craft beer leggings shoreditch lo-fi messenger bag taiyaki. Tacos cupidatat do you probably haven't heard of them cliche kitsch heirloom godard. Selfies yuccie semiotics, readymade gluten-free man braid in edison bulb synth trust fund. Affogato jianbing palo santo chartreuse proident, adaptogen tousled mixtape aute forage tilde air plant occupy intelligentsia. Subway tile shaman fixie tattooed typewriter thundercats lyft pok pok velit chicharrones jean shorts air plant iceland franzen schlitz. Fingerstache intelligentsia offal biodiesel nostrud glossier jean shorts, YOLO cronut yuccie roof party vinyl.</p>
     </section>
-    <button onClick="funcy()">Tell me</button>
+    <button onClick="trigger()">Tell me</button>
 
     <!-- The fun stuff -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script src="scripts/ad.js"></script>
 </body>
 </html>
