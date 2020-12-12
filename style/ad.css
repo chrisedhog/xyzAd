@@ -1,7 +1,18 @@
-#adbanner {
+/* #adbanner {
     position: fixed;
     top: 0px;
     width: 100%;
     height: 40px;
     background-color: aqua;
+} */
+
+#leadin {
+    display: block;
+    position: sticky;
+    top: 0;
+}
+
+#adbox {
+    width: 90%;
+    height: 400px;
 }
