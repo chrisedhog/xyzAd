@@ -31,9 +31,12 @@ const onSticky = isSticky => {
    console.log(isSticky)
    
    par.classList.toggle('isSticky', isSticky)
+
    if(isSticky) {
    trigger = true
-   console.log(trigger)
+   console.log("trigger: " + trigger)
+
+   // style the elem
    par.style.backgroundColor = 'black'
    }
 }
@@ -71,16 +74,13 @@ function throttle (callback, limit) {
             }, limit);
         }
     }
+
 }
 
 ///////////////////////////////////////////////////
 // end stackoverflow code from user jonathansampson
 ///////////////////////////////////////////////////
 
-if(trigger == true) {
-    console.log("hello");
-    reformatPara = setInterval(trinityMessage, 30);
-}
 
 function trinityMessage() {
 
