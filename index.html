@@ -57,13 +57,17 @@
             <div data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-offset="100vw" data-aos-duration="10000" id="phonecall">
                 <h3>INCOMING VIDEO CALL</h3>
                 <h2>UNKNOWN CALLER</h2>
-                
+                <div class="phonebtns">
+                    <div id="decline">
+                        <span><img src="img/decline.svg" alt="decline" onClick="call('decline')"></span><br>
+                        <span>Decline</span>
+                    </div>
+                    <div id="answer">
+                            <span><img src="img/answer.svg" alt="decline" onClick="call('answer')"></span><br>
+                            <span>Answer</span>
+                    </div>
+                </div>
             </div>
-            <div style="height: 400px;" class="spacer"></div>
-            <!-- play video (2 depending on accept or decline) -->
-            <!-- "trinity warning video (accept)" or "Agent smith monoglogue, coming for you (decline)" -->
-            <!-- Return from video -->
-            <!-- CTA + Matrix code the end -->
         </div>
         <br>
         <p>Tumblr dolore sunt YOLO, fashion axe hella helvetica poke four loko. Flannel drinking vinegar four loko dolore gluten-free. Skateboard pitchfork meggings drinking vinegar ut succulents. Whatever wolf 8-bit taxidermy laboris pop-up cronut dolore roof party jean shorts pariatur vape actually.</p>
@@ -78,6 +82,5 @@
         AOS.init();
     </script>
     <script src="scripts/ad.js"></script>
-    <script src="scripts/syncscroll.js"></script>
 </body>
 </html>

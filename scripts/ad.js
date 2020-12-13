@@ -8,7 +8,10 @@ var str = String.fromCharCode(66);
 var par = document.getElementById("leadin");
 var message = par.innerHTML;
 var reformatPara;
+var answered = false;
 
+// set the height of the div so that it doesn't keep shrinking and break the scroll exp for user
+par.setAttribute("style","height: " + par.offsetHeight + "px");
 
 ///////////////////////////////////////////////////
 // below code taken from stackoverflow user jonathansampson
@@ -26,9 +29,6 @@ const detectStickiness = (elm, cb) => () => cb & cb(elm.offsetTop != elm._origin
 
 // Act if sticky or not
 const onSticky = isSticky => {
-   console.clear()
-   console.log(isSticky)
-   
    par.classList.toggle('isSticky', isSticky)
 
    if(isSticky) {
@@ -79,7 +79,6 @@ function throttle (callback, limit) {
 
 
 function trinityMessage() {
-
     // Part 1: begin deleting message until only enough chars left for newString
     if (message.length > newString.length) {
         // delete one
@@ -128,7 +127,6 @@ function randomAsciiVal() {
     let min = Math.ceil(33);
     let max = Math.floor(127);
     let val =  Math.floor(Math.random() * (max - min) + min);
-    console.log(val);
     return val;
 }
 
@@ -142,21 +140,60 @@ function writeText(i) {
 }
 
 
-// get position and trigger animation
-window.addEventListener('scroll', () => {
-    var d = document.getElementsByTagName("leadin");
-    var n = document.getElementById("adbox");
-    var dpos = d.offsetTop;
-    var npos = n.offsetTop;
+function call(res) {
+    let call = document.getElementById("phonecall");
+    let video = '<video autoplay id="vid" onended="destroyvid()"><source src="media/' + res + '.mp4" type="video/mp4"></video>';
+    if (res == "answer") {
+        answered = true;
+    }
+    call.innerHTML = video;
+}
 
-    console.log("leadin: " + dpos + ". adbox: " + npos);
+// update content of phonecall div once video has finished
+function destroyvid() {
+    let call = document.getElementById("phonecall");
+    call.innerHTML = '<div id="endelem"><canvas width="100vw" height="100vh" id="canv"></canvas><div id="cta" style="margin-top: -70vh;"><img src="img/The-matrix-logo.svg" alt="" id="matrix-logo"><p>Escape the simulation.</p><h4>03.08.21</h4><button class="greenbtn">Take the red pill</button></div></div>';
+    call.style.background = 'none';
 
-    // var para = document.getElementsByTagName("P")[3];
-    // var adBanner = document.getElementById("adbanner");
-    // console.log(para.offsetTop);
+///////////////////////////////////////////////////
+// begin code from  Ganesh Prasad
+///////////////////////////////////////////////////
 
-    // const scrollMax = document.documentElement.scrollHeight - window.innerHeight;
-    // const scrollDist = Math.ceil(window.scrollY); 
-    // console.log("scrolled");
-    // console.log(scrollMax + " " + scrollDist);
-});
+    const canvas = document.getElementById('canv');
+    const ctx = canvas.getContext('2d');
+    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+
+    const w = canvas.width = vw;
+    const h = canvas.height = vh;
+    console.log("width: " + w + ". Height: " + h);
+    const cols = Math.floor(w / 20) + 1;
+    const ypos = Array(cols).fill(0);
+
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, w, h);
+
+    function matrix () {
+    ctx.fillStyle = '#0001';
+    ctx.fillRect(0, 0, w, h);
+    
+    ctx.fillStyle = '#0f0';
+    ctx.font = '15pt monospace';
+    
+    ypos.forEach((y, ind) => {
+        const text = String.fromCharCode(Math.random() * 128);
+        const x = ind * 20;
+        ctx.fillText(text, x, y);
+        if (y > 100 + Math.random() * 10000) ypos[ind] = 0;
+        else ypos[ind] = y + 20;
+    });
+    }
+
+    setInterval(matrix, 50);
+
+///////////////////////////////////////////////////
+// end code from  Ganesh Prasad
+///////////////////////////////////////////////////
+}
+
+
