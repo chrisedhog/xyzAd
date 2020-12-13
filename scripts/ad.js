@@ -8,7 +8,6 @@ var str = String.fromCharCode(66);
 var par = document.getElementById("leadin");
 var message = par.innerHTML;
 var reformatPara;
-var trigger = false;
 
 
 ///////////////////////////////////////////////////
@@ -33,11 +32,8 @@ const onSticky = isSticky => {
    par.classList.toggle('isSticky', isSticky)
 
    if(isSticky) {
-   trigger = true
-   console.log("trigger: " + trigger)
-
-   // style the elem
-   par.style.backgroundColor = 'black'
+    // play
+    reformatPara = setInterval(trinityMessage, 300);
    }
 }
 
@@ -100,6 +96,9 @@ function trinityMessage() {
     
     // Part 2: resolve remaining characters to = newString
     if (message.length == newString.length) {
+        // change style on paragraph
+        par.style.fontFamily = "'Courier New', Courier, monospace";
+        par.style.color = '#258320';
 
         for(let i = 0; i < newString.length; i++) {
             if(message.charCodeAt(i) != newString.charCodeAt(i)) {

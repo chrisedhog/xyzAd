@@ -12,17 +12,15 @@
     <!-- scroll anim library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!-- G Font -->
-    <link rel="preconnect" href="https://fonts.gstatic.com"> 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     
 </head>
 <body>
     <nav>
         <img id="burger" src="img/burger.svg" alt="menu">
-        <img src="img/ch_banner.svg" alt="Chris Hogben">
+        <img src="img/ch_banner.svg" height="32" alt="Chris Hogben">
     </nav>
     <section class="content">
+        <h1>Lorem Ipsum Dolor</h1>
         <p>Authentic cronut health goth, chambray celiac wolf lyft. Williamsburg occupy kogi messenger bag man bun minim cliche iceland pork belly poke. Magna ethical kombucha put a bird on it microdosing fam DIY la croix helvetica. Godard tattooed commodo 8-bit next level eiusmod. Taiyaki pickled cupidatat wayfarers. In pug trust fund art party, portland bitters qui glossier letterpress coloring book adaptogen hella. Ethical ramps thundercats shoreditch yuccie four loko.</p>
         <p>Whatever ad tacos, knausgaard forage venmo ugh portland gochujang sriracha. Meh street art ea fugiat. Typewriter adipisicing biodiesel tumblr 3 wolf moon waistcoat. Humblebrag umami veniam cliche 8-bit. Officia brooklyn heirloom whatever messenger bag street art minim activated charcoal dolore shoreditch deep v slow-carb freegan coloring book. Hoodie 3 wolf moon health goth, culpa intelligentsia single-origin coffee id vape palo santo chambray hot chicken.</p>
         <p>Chartreuse vexillologist laborum do tofu. Ad stumptown swag ea commodo lumbersexual. Listicle jean shorts jianbing semiotics. Small batch before they sold out tattooed listicle readymade hammock sustainable ut. Artisan magna tote bag, jianbing esse brunch asymmetrical voluptate XOXO in retro tousled. Sustainable flannel yuccie bushwick.</p>
@@ -31,7 +29,41 @@
         <p id="leadin">Umami tote bag VHS, laboris try-hard pop-up narwhal pitchfork prism gastropub. Vinyl pop-up meggings blog yuccie hella blue bottle occaecat irony veniam. Typewriter fixie banjo beard do 3 wolf moon wolf tumeric synth pickled. Esse cold-pressed synth literally chicharrones, distillery consectetur four dollar toast nisi. Jianbing narwhal ullamco, heirloom fam kombucha pickled cold-pressed intelligentsia consectetur taxidermy small batch woke DIY. Tempor eiusmod butcher waistcoat shabby chic single-origin coffee nisi.</p>
         <!-- pretend ad starts here -->
         <div id="adbox">
-            <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">The Matrix has you.</div>
+            <div id="intro">
+                <div style="height: 600px;" class="spacer"></div>
+                <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-offset="500" data-aos-duration="10000" class="matrixtext" style="top: 90px;">The Matrix has you.</p>
+                <div style="height: 900px;" class="spacer"></div>
+                <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-offset="500" data-aos-duration="10000" class="matrixtext" style="top: 110px;">Follow the white rabbit...</p>
+                <div style="height: 400px;" class="spacer"></div>
+                <pre id="rabbit">
+                 .--,_
+                / ,/ /
+                / // /
+                / // /
+            .'  ' (
+            /       \.-"""-._
+            / a   ' .    '    `-.
+            (       .  '      "   `.
+            `-.-'       "       '  ;
+                `.'  "  .  .-'    " ;
+                : .     .'          ;
+                `.   ' :     '   '  ;
+                    )  _.". "     .  ";
+                .'_.'   .'   '  __.,`.
+                '"      ""''---'`    "'
+                </pre>
+                <div style="height: 400px;" class="spacer"></div>
+            </div>
+            <div data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-offset="100vw" data-aos-duration="10000" id="phonecall">
+                <h3>INCOMING VIDEO CALL</h3>
+                <h2>UNKNOWN CALLER</h2>
+                
+            </div>
+            <div style="height: 400px;" class="spacer"></div>
+            <!-- play video (2 depending on accept or decline) -->
+            <!-- "trinity warning video (accept)" or "Agent smith monoglogue, coming for you (decline)" -->
+            <!-- Return from video -->
+            <!-- CTA + Matrix code the end -->
         </div>
         <br>
         <p>Tumblr dolore sunt YOLO, fashion axe hella helvetica poke four loko. Flannel drinking vinegar four loko dolore gluten-free. Skateboard pitchfork meggings drinking vinegar ut succulents. Whatever wolf 8-bit taxidermy laboris pop-up cronut dolore roof party jean shorts pariatur vape actually.</p>
@@ -46,5 +78,6 @@
         AOS.init();
     </script>
     <script src="scripts/ad.js"></script>
+    <script src="scripts/syncscroll.js"></script>
 </body>
 </html>
