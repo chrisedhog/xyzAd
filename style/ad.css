@@ -48,7 +48,8 @@ p.isSticky {
 #rabbit {
     color: white;
     font-family: 'Courier New', Courier, monospace;
-    width: 300px;
+    font-size: 0.8rem;
+    width: 200px;
 }
 
 #phonecall {
@@ -122,6 +123,7 @@ p.isSticky {
     height: 100vh;
 
     text-align: center;
+
 }
 
 #cta {
