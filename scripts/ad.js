@@ -147,6 +147,7 @@ function call(res) {
         answered = true;
     }
     call.innerHTML = video;
+    par.setAttribute("style","position: relative !important;");
 }
 
 // update content of phonecall div once video has finished
